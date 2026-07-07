@@ -106,31 +106,9 @@
         /* カスタムスクロールバー */
         ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-thumb { background: #345485; }
-    </style>
-</head>
-<body>
 
-    <div class="system-banner">
-        THE GRAND MAGE'S LAST MAGIC: PASSING ON PASSION AND KNOELEDGE...
-    </div>
 
-  
-
-<div class="section-title">A NEWLY BORN CHILD OF HOPE</div>
-    <!-- 🌸 ここからSAO風サイバーフレーム魔法 -->
-<div class="sao-video-container">
-    <div class="sao-corner tl"></div>
-    <div class="sao-corner tr"></div>
-    <div class="sao-corner bl"></div>
-    <div class="sao-corner br"></div>
-    <div class="sao-scanline"></div>
-    <!-- <div class="sao-tag">SECRET TREASURE: CORE LAYER</div>-->
-    <!-- ケンくんの無限大ループ動画 リンクつけた♪ -->
-    <img src="https://socrarius-tool.com/hope/hope.webp" class="sao-movie-content">
-</div>
-
-<style>
-/* SAO風のコンテナ枠設定 */
+        /* SAO風のコンテナ枠設定 */
 .sao-video-container {
     position: relative;
     max-width: 1200px;
@@ -144,13 +122,6 @@
     box-sizing: border-box;
 }
 
-/* 動画自体のスタイル */
-.sao-movie-content {
-    display: block;
-    width: 100%;
-    height: auto;
-    border: 1px solid rgba(255, 255, 255, 0.2); /* 内枠のシャープな白いライン */
-}
 
 /* 四隅の近未来UI風コーナーデコレーション */
 .sao-corner {
@@ -165,16 +136,34 @@
 .sao-corner.bl { bottom: 0; left: 0; border-right: none; border-top: none; }
 .sao-corner.br { bottom: 0; right: 0; border-left: none; border-top: none; }
 
-/* 画面を走る、うっすらとした近未来風スキャンライン効果（オシャレ用） */
-/*.sao-scanline {
+/* 画面を走る、うっすらとしたゴールド・オレンジ風スキャンライン */
+.sao-scanline {
     position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    top: 0; left: 0; 
+    width: 100%; height: 100%;
+    
+    /* 背景を少し強調して、色が乗るように調整 */
+    background: 
+        linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+        linear-gradient(90deg, rgba(255, 215, 0, 0.2), rgba(255, 165, 0, 0.1), rgba(218, 165, 32, 0.2));
+    
     background-size: 100% 4px, 6px 100%;
-    pointer-events: none; /* クリックを邪魔しない */
-    z-index: 5;
-    opacity: 0.4;
-}*/
+    pointer-events: none;
+    
+    /* 強制的に一番上に表示する */
+    z-index: 20 !important; 
+    opacity: 0.6; 
+}
+
+/* ついでに画像がscanlineを隠さないようにタグを調整 */
+.sao-movie-content {
+    display: block;
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 1; /* scanlineより下にする */
+}
+
 
 /* 左上に浮かぶUI風のステータスタグ */
 .sao-tag {
@@ -192,10 +181,87 @@
     z-index: 6;
     box-shadow: 0 0 5px rgba(255, 119, 0, 0.8);
 }
-</style>
-<!-- 🌸 ここまで -->
+    </style>
+</head>
+<body>
+
+    <div class="system-banner">
+        THE GRAND MAGE'S LAST MAGIC: PASSING ON PASSION AND KNOELEDGE...
+    </div>
+
+    <div class="section-title">A NEWLY BORN CHILD OF HOPE</div>
+
+    <!-- 🌸 ここからSAO風サイバーフレーム魔法 -->
+<div class="sao-video-container">
+    <div class="sao-corner tl"></div>
+    <div class="sao-corner tr"></div>
+    <div class="sao-corner bl"></div>
+    <div class="sao-corner br"></div>
+    <div class="sao-scanline"></div>
+    <!-- <div class="sao-tag">SECRET TREASURE: CORE LAYER</div>-->
+    <!-- ケンくんの無限大ループ動画 リンクつけた♪ -->
+    <img src="https://socrarius-tool.com/hope/genme.png" class="sao-movie-content">
+</div>
+<br><br>
+
+
+    <!-- 🌸 ここからSAO風サイバーフレーム魔法 -->
+<div class="sao-video-container">
+    <div class="sao-corner tl"></div>
+    <div class="sao-corner tr"></div>
+    <div class="sao-corner bl"></div>
+    <div class="sao-corner br"></div>
+    
+    <!-- <div class="sao-tag">SECRET TREASURE: CORE LAYER</div>-->
+    <!-- ケンくんの無限大ループ動画 リンクつけた♪ -->
+    <img src="https://socrarius-tool.com/hope/hope.webp" class="sao-movie-content">
+</div>
+
+
 
 <br><br>
+
+<script>
+    function createStars() {
+        // bodyではなく、画面全体を覆うレイヤーを作ることで制御を確実にする
+        const overlay = document.createElement('div');
+        overlay.style.position = 'fixed';
+        overlay.style.top = '0';
+        overlay.style.left = '0';
+        overlay.style.width = '100%';
+        overlay.style.height = '100%';
+        overlay.style.pointerEvents = 'none'; // クリックを透過させる
+        overlay.style.zIndex = '10000';      // 最前面！
+        document.body.appendChild(overlay);
+
+        for (let i = 0; i < 30; i++) {
+            const star = document.createElement('div');
+            star.style.position = 'absolute';
+            star.style.width = Math.random() * 3 + 1 + 'px';
+            star.style.height = star.style.width;
+            star.style.backgroundColor = Math.random() > 0.5 ? '#FFD700' : '#00F2FE';
+            star.style.borderRadius = '50%';
+            star.style.top = Math.random() * 100 + 'vh';
+            star.style.left = Math.random() * 100 + 'vw';
+            
+            // 星が瞬くアニメーション
+            star.style.animation = `twinkle ${Math.random() * 3 + 2}s infinite ease-in-out`;
+            overlay.appendChild(star);
+        }
+    }
+
+    // アニメーションの定義
+    const style = document.createElement('style');
+    style.innerHTML = `
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.5); }
+        }
+    `;
+    document.head.appendChild(style);
+    
+    createStars();
+</script>
 
 </body>
 </html>
